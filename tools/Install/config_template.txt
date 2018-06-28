@@ -1,0 +1,4 @@
+#NOTE: The Device Serial Number can be any unique number
+DEVICE_SERIAL_NUMBER="${DEVICE_SERIAL_NUMBER}"
+CLIENT_ID="${CLIENT_ID}"
+PRODUCT_ID="${PRODUCT_ID}"

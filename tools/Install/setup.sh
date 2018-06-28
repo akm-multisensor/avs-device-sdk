@@ -189,7 +189,7 @@ then
     echo
 
     cd $SOURCE_PATH
-    git clone git://github.com/alexa/avs-device-sdk.git
+    git clone --branch akm-v1.7.1 --depth 1 https://github.com/akm-multisensor/avs-device-sdk.git
 
     # make the SDK
     echo

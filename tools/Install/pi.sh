@@ -43,18 +43,10 @@ configure_sound() {
   echo
 
   cat << EOF > "$SOUND_CONFIG"
-  pcm.!default {
-    type asym
-     playback.pcm {
-       type plug
-       slave.pcm "hw:0,0"
-     }
-     capture.pcm {
-       type plug
-       slave.pcm "hw:1,0"
-     }
-  }
+pcm.!default akm-enhancedvoice
+
 EOF
+  chmod a-w "$SOUND_CONFIG"
 }
 
 build_kwd_engine() {
@@ -65,7 +57,9 @@ build_kwd_engine() {
 
   cd $THIRD_PARTY_PATH
   git clone git://github.com/Sensory/alexa-rpi.git
-  bash ./alexa-rpi/bin/license.sh
+  cd alexa-rpi
+  [[ -n ${COMMIT_ID_OF_MODEL_TO_USE} ]] && git checkout ${COMMIT_ID_OF_MODEL_TO_USE} -- ./models/spot-alexa-rpi-31000.snsr
+  bash ./bin/license.sh
 }
 
 generate_start_script() {
